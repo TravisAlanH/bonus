@@ -16,11 +16,11 @@ function App() {
     <div className="App">
       <lable>Earnings</lable>
       <input type="text" onChange={(e) => setEarning(e.target.value)} />
-      <lable>Bunus Elegebility</lable>
+      <lable>Bonus Elegebility</lable>
       <input type="text" onChange={(e) => setBonusEligibility(e.target.value)} />
-      <lable>Bunus Indicator</lable>
+      <lable>Bonus Indicator</lable>
       <input type="text" onChange={(e) => setBonusIndicator(e.target.value)} />
-      <lable>Bunus</lable>
+      <lable>Bonus</lable>
       <p>{BonusAmount}</p>
     </div>
   );
