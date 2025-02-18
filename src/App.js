@@ -20,10 +20,23 @@ function App() {
         <label>Earnings ($):</label>
         <input type="number" value={earning} onChange={(e) => setEarning(parseFloat(e.target.value) || 0)} />
       </div>
+      <div
+        id="note"
+        style={{
+          fontSize: "12px",
+          fontStyle: "italic",
+          color: "#555",
+          marginBottom: "10px",
+          paddingBottom: "10px",
+        }}
+      >
+        {`APD > Pay & Tax > Year 2024 > Gross > Regular`}
+      </div>
       <div className="input-group">
         <label>Bonus Eligibility (%):</label>
         <input type="number" value={bonusEligibility} onChange={(e) => setBonusEligibility(parseFloat(e.target.value) || 0)} />
       </div>
+
       <div className="input-group">
         <label>Bonus Rate (%):</label>
         <input type="number" value={bonusIndicator} onChange={(e) => setBonusIndicator(parseFloat(e.target.value) || 0)} />
