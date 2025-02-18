@@ -1,27 +1,73 @@
 import "./App.css";
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
-  const [Earning, setEarning] = useState(0);
-  const [BonusIndicator, setBonusIndicator] = useState(0);
-  const [BonusElegebility, setBonusEligibility] = useState(0);
-  const [BonusAmount, setBonusAmount] = useState(0);
+  const [earning, setEarning] = useState(0);
+  const [bonusIndicator, setBonusIndicator] = useState(0);
+  const [bonusEligibility, setBonusEligibility] = useState(0);
+  const [bonusAmount, setBonusAmount] = useState(0);
 
-  React.useEffect(() => {
-    setBonusAmount((Earning * (BonusElegebility / 100) * (BonusIndicator / 100)).toFixed(2).toString());
-  }, [Earning, BonusElegebility, BonusIndicator]);
+  // Effect hook to calculate bonus amount whenever inputs change
+  useEffect(() => {
+    const calculatedBonus = (earning * (bonusEligibility / 100) * (bonusIndicator / 100)).toFixed(2);
+    setBonusAmount(calculatedBonus);
+  }, [earning, bonusEligibility, bonusIndicator]);
 
   return (
-    <div className="App">
-      <lable>Earnings</lable>
-      <input type="text" onChange={(e) => setEarning(e.target.value)} />
-      <lable>Bonus Elegebility</lable>
-      <input type="text" onChange={(e) => setBonusEligibility(e.target.value)} />
-      <lable>Bonus Indicator</lable>
-      <input type="text" onChange={(e) => setBonusIndicator(e.target.value)} />
-      <lable>Bonus</lable>
-      <p>{BonusAmount}</p>
+    <div className="app-container">
+      <h2>Bonus Calculator</h2>
+      <div className="input-group">
+        <label>Earnings ($):</label>
+        <input type="number" value={earning} onChange={(e) => setEarning(parseFloat(e.target.value) || 0)} />
+      </div>
+      <div className="input-group">
+        <label>Bonus Eligibility (%):</label>
+        <input type="number" value={bonusEligibility} onChange={(e) => setBonusEligibility(parseFloat(e.target.value) || 0)} />
+      </div>
+      <div className="input-group">
+        <label>Bonus Indicator (%):</label>
+        <input type="number" value={bonusIndicator} onChange={(e) => setBonusIndicator(parseFloat(e.target.value) || 0)} />
+      </div>
+      <div className="result">
+        <h3>Bonus Amount: ${bonusAmount}</h3>
+      </div>
+      <style>
+        {`
+          .app-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            text-align: center;
+            font-family: Arial, sans-serif;
+          }
+          .input-group {
+            margin: 15px 0;
+          }
+          label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+          input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+          }
+          .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0f7fa;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: bold;
+          }
+        `}
+      </style>
     </div>
   );
 }
