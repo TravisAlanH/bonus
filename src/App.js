@@ -25,11 +25,22 @@ function App() {
         <input type="number" value={bonusEligibility} onChange={(e) => setBonusEligibility(parseFloat(e.target.value) || 0)} />
       </div>
       <div className="input-group">
-        <label>Bonus Indicator (%):</label>
+        <label>Bonus Rate (%):</label>
         <input type="number" value={bonusIndicator} onChange={(e) => setBonusIndicator(parseFloat(e.target.value) || 0)} />
       </div>
       <div className="result">
         <h3>Bonus Amount: ${bonusAmount}</h3>
+      </div>
+      <div
+        id="note"
+        style={{
+          fontSize: "12px",
+          fontStyle: "italic",
+          color: "#555",
+          marginTop: "10px",
+        }}
+      >
+        This is a base calculation. Please account for taxes, deductions, and tenure at Sunbird.
       </div>
       <style>
         {`
