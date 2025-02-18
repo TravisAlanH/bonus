@@ -30,7 +30,7 @@ function App() {
           paddingBottom: "10px",
         }}
       >
-        {`APD > Pay & Tax > Year 2024 > Gross > Regular`}
+        {`ADP > Pay & Tax > Year 2024 > Gross > Regular`}
       </div>
       <div className="input-group">
         <label>Bonus Eligibility (%):</label>
